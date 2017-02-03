@@ -1,0 +1,113 @@
+body{
+	margin: 0;
+	padding: 0;
+}
+.wrapper{
+	width: calc(100% - 10px);
+	max-width: 700px;
+	position: relative;
+	margin:0 auto;
+	overflow:hidden;
+}
+#totop{
+	position:fixed;
+	left: 0;
+	top: 0;
+}
+#totop a{
+	display: table;
+	color: black;
+	text-decoration: none;
+}
+#totop .btn{
+	width:100px;
+	height:60px;
+	background:whitesmoke;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+#totop .btn:hover{
+	opacity: 0.5;
+}
+.newtopic input[type="text"]{
+	width: calc(100% - 42px);
+}
+input[type="submit"]{
+	background: white;
+	border: solid 2px whitesmoke;
+}
+a.topic{
+	color: #666;
+	text-decoration: none;
+}
+a.topic h2{
+	color: #99d;
+	margin: 5px 0;
+}
+a.topic .detail{
+	font-size: 9px;
+	border-bottom: 1px solid #eee;
+}
+.login input[type="text"]{
+	width:100px;
+}
+input[type="password"]{
+	width:60px;
+}
+textarea{
+	width:100%;
+	margin: 10px 0;
+	display: block;
+}
+div.right{
+	text-align: right;
+}
+div.tlist{
+	padding: 15px 0;
+}
+div.tlist:hover{
+	background: rgba(240,240,255,0.5);
+}
+div.clist{
+	margin: 1em 0;
+	padding: 1em;
+	border-top: 1px solid skyblue;
+}
+form.delete{
+	float:right;
+	position: relative;
+}
+#deletepass {
+	display: none;
+	position: absolute;
+	right: -70px;
+	top: 0;
+}
+.loginwrap{
+	position:fixed;
+	right:2px;
+	top:0;
+	text-align: right;
+}
+.openpage{
+	padding: 2px 1.2em;
+	border: 1px solid #ccc;
+	background: #eee;
+	color: black;
+}
+#newaccountwrap{
+	display: none;
+	margin: 4px 0;
+}
+form[name="newaccount"]{
+	width: 100px;
+	display: inline-block;
+}
+form[name="newaccount"] input{
+	width: 100%;
+	margin: 2px 0;
+}
+.message{
+	padding: 1em 0;
+}
