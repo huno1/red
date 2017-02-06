@@ -18,7 +18,7 @@ class Commander{
 			return new deleteContent();
 			
 		}else if(action.equals("deleteTopic")){
-			return new readContentList();
+			return new deleteTopic();
 			
 		}else if(action.equals("login")){
 			return new login();

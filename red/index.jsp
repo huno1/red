@@ -1,4 +1,4 @@
-
+<%@ include file="side.jsp" %>
 <%@ include file="header.jsp" %>
 <% 
 	if(request.getParameter("topic")!=null){ %>
@@ -7,5 +7,4 @@
 		<%@ include file="topic.jsp" %>
 	<% }
 %>	
-<%@ include file="side.jsp" %>
 <%@ include file="footer.jsp" %>
