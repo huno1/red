@@ -7,7 +7,7 @@
 <% if(session.getAttribute("s_id")!=null){ %>
 <form class="newtopic" name="newtopic" method="POST" action="main" onsubmit="checktopic();return false">
     <input type="text" id="nTOPIC" name="title" placeholder="Make a new topic"></textarea>
-    <input type="submit" value="“Še" />
+    <input type="submit" value="ì¬" />
     <input type="hidden" name="action" value="writeTopic" >
 </form>
 <% } %>

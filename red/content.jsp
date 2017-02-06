@@ -5,7 +5,7 @@
 <div class="wrapper">
 <% try{
 	Topic t=(Topic)request.getAttribute("topic"); %>
-	<div><%=t.getId() +" / "+ t.getTitle() +" / "+ t.getFdate() +" / "+ t.getLdate() +" / "+ t.getCount() %></div>
+	<div><%=t.getId() +" / "+ t.getTitle() +" / "+ t.getMaker() +" / "+ t.getFdate() +" / "+ t.getLdate() +" / "+ t.getCount() %></div>
     <form name="writeContent" class="write" method="POST" action="main?<%=request.getQueryString() %>" onsubmit="checkcontent();return false">
         <textarea rows="4" cols="50" name="content" placeholder="please enter..."></textarea>
         <div class="right"><input type="submit" value="“Še" /></div>

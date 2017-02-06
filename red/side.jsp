@@ -39,5 +39,5 @@
     } %>
 </div>
 <div id="totop">
-	<a href="/red"><div class="btn">Top‚Ö</div></a>
+	<a href="#top"><div class="btn">Top‚Ö</div></a>
 </div>

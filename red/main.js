@@ -1,11 +1,3 @@
-function opentopic(thid){
-	var cloak = document.getElementById("t"+thid).getElementsByClassName("cloak")[0];
-	if(cloak.style.display!="block"){
-		cloak.style.display="block";
-	}else{
-		cloak.style.display="none";
-	}
-}
 function openaccount(){
 	var cloak = document.getElementById("newaccountwrap");
 	if(cloak.style.display!="block"){

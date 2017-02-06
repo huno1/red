@@ -2,26 +2,46 @@ body{
 	margin: 0;
 	padding: 0;
 }
+a{
+	color: initial;
+}
 .wrapper{
 	width: calc(100% - 10px);
 	max-width: 700px;
 	position: relative;
 	margin:0 auto;
 	overflow:hidden;
+	padding: 15px 0;
+}
+#top{
+	width: calc(100% - 10px);
+	max-width: 700px;
+	padding: 40px 15px;
+	margin: 0 auto;
+	width: 100%;
+	text-align: center;
+	background: #99f;
+}
+#top a{
+	color: white;
+	font-size: 40px;
+	text-decoration: none;
+	font-weight: bold;
 }
 #totop{
 	position:fixed;
-	left: 0;
-	top: 0;
+	right: 0;
+	bottom: 0;
 }
 #totop a{
 	display: table;
 	color: black;
 	text-decoration: none;
+	font-size: 20px;
 }
 #totop .btn{
 	width:100px;
-	height:60px;
+	height:50px;
 	background:whitesmoke;
 	display: table-cell;
 	vertical-align: middle;
@@ -31,7 +51,7 @@ body{
 	opacity: 0.5;
 }
 .newtopic input[type="text"]{
-	width: calc(100% - 42px);
+	width: calc(100% - 43px);
 }
 input[type="submit"]{
 	background: white;
@@ -65,7 +85,7 @@ div.right{
 	text-align: right;
 }
 div.tlist{
-	padding: 15px 0;
+	padding-bottom: 15px;
 }
 div.tlist:hover{
 	background: rgba(240,240,255,0.5);
@@ -74,6 +94,9 @@ div.clist{
 	margin: 1em 0;
 	padding: 1em;
 	border-top: 1px solid skyblue;
+}
+div.clist .cont{
+	padding: 1em 0;
 }
 form.deletetopic{
 	display: inline-block;
