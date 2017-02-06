@@ -29,11 +29,11 @@ class readContentList extends Executer {
 		}
 		req.setAttribute("contentlist",clist);
 		
-		sql = "SELECT th_id, th_title, th_fdate, th_ldate, count FROM thread LEFT JOIN (select con_th_id, count(*) count from content group by con_th_id) ON (th_id=con_th_id) WHERE th_id = '"+thid+"'";
+		sql = "SELECT th_id, th_title, th_fdate, th_ldate, count, th_maker FROM thread LEFT JOIN (select con_th_id, count(*) count from content group by con_th_id) ON (th_id=con_th_id) WHERE th_id = '"+thid+"'";
 		
 		rs = stmt.executeQuery(sql);
 		rs.next();
-		Topic topic = new Topic(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+		Topic topic = new Topic(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6));
 		
 		req.setAttribute("topic", topic);
 		

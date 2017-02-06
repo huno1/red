@@ -1,6 +1,7 @@
 <%@ page pageEncoding="Windows-31J"
     contentType="text/html;charset=Windows-31J"
-	import="java.util.List,bean.User" %>
+	import="java.util.List" %>
+	
 <div class="loginwrap">
     <% if(session.getAttribute("s_id")==null){%>
    	<form name="login" method="POST" action="main?<%=request.getQueryString() %>">

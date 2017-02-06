@@ -44,6 +44,18 @@ function checkcontent(){
 		return true;
 	}
 }
+function checkdeletetopic(){
+	if(confirm("ƒXƒŒ‚ğíœ‚µ‚Ü‚·")){
+		document.deletetopic.submit();
+		return true;
+	}
+}
+function checkdeletecontent(){
+	if(confirm("ƒŒƒX‚ğíœ‚µ‚Ü‚·")){
+		document.deletecontent.submit();
+		return true;
+	}
+}
 window.onload = function(){
 	var thid = window.location.href.split("#t");
 	opentopic(thid[1]);

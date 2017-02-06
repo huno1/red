@@ -48,6 +48,7 @@ a.topic h2{
 a.topic .detail{
 	font-size: 9px;
 	border-bottom: 1px solid #eee;
+	height: 19px;
 }
 .login input[type="text"]{
 	width:100px;
@@ -74,21 +75,20 @@ div.clist{
 	padding: 1em;
 	border-top: 1px solid skyblue;
 }
-form.delete{
-	float:right;
-	position: relative;
+form.deletetopic{
+	display: inline-block;
+	margin: 0;
 }
-#deletepass {
-	display: none;
-	position: absolute;
-	right: -70px;
-	top: 0;
+form.deletecontent{
+	text-align: right;
+	margin: 0;
 }
 .loginwrap{
 	position:fixed;
 	right:2px;
 	top:0;
 	text-align: right;
+	z-index: 9;
 }
 .openpage{
 	padding: 2px 1.2em;

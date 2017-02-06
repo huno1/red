@@ -10,8 +10,15 @@ class writeTopic extends Executer {
 	
 	public void execute(HttpServletRequest req) throws Exception{
 		
+		HttpSession session = req.getSession();
+		
 		String title = req.getParameter("title");
-		String sql = "INSERT INTO thread VALUES(thread_seq.nextval,'"+title+"', default, default)";
+		String username = (String)session.getAttribute("s_id");
+		if(username == null){
+			username = req.getRemoteAddr();
+		}
+		
+		String sql = "INSERT INTO thread VALUES(thread_seq.nextval,'"+title+"', default, default, '"+username+"')";
 		
 		stmt.executeUpdate(sql);
 	

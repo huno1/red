@@ -18,7 +18,7 @@
     		 <%=c.getId() +" / "+ c.getUsername() +" / "+ c.getDate() %>
     		 <div class="cont"><%=c.getContent() %></div>
 		     <% if(session.getAttribute("s_id")!=null && session.getAttribute("s_id").equals(c.getUsername())){ %>
-	    		 <form class="delete" name="del" method="POST" action="main?<%=request.getQueryString() %>">
+	    		 <form class="deletecontent" name="deletecontent" method="POST" action="main?<%=request.getQueryString() %>" onsubmit="checkdeletecontent();return false">
 					 <input type="submit" value="íœ" >
 		    		 <input type="hidden" name="cid" value="<%=c.getId() %>" >
 		    		 <input type="hidden" name="action" value="deleteContent" >
