@@ -30,6 +30,9 @@ public class Topic{
 		return ldate;
 	}
 	public String getCount(){
+		if(count==null){
+			count="0";
+		}
 		return count;
 	}
 	public String getMaker(){

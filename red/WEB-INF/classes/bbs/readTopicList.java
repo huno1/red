@@ -16,6 +16,7 @@ class readTopicList extends Executer {
 	
 	public void execute(HttpServletRequest req) throws Exception{
 		
+		//topic=form‚©‚çŽæ‚Á‚½ƒXƒŒID
 		String thid = req.getParameter("topic");
 		
 		List<Topic> tlist = new ArrayList<Topic>();
@@ -23,7 +24,7 @@ class readTopicList extends Executer {
 		
 		ResultSet rs = stmt.executeQuery(sql);
 		while (rs.next()) {
-			Topic t = new Topic(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6));
+			Topic t = new Topic(rs.getString(1), rs.getString(2), rs.getString(3).substring(0,rs.getString(3).length()-2), rs.getString(4).substring(0,rs.getString(4).length()-2), rs.getString(5), rs.getString(6));
 			tlist.add(t);
 		}
 		rs.close();

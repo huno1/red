@@ -4,6 +4,7 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 
+import java.sql.ResultSet;
 import java.sql.Statement;
 
 class writeTopic extends Executer {
@@ -18,7 +19,17 @@ class writeTopic extends Executer {
 			username = req.getRemoteAddr();
 		}
 		
-		String sql = "INSERT INTO thread VALUES(thread_seq.nextval,'"+title+"', default, default, '"+username+"')";
+		String sql = "SELECT thread_seq.nextval FROM dual";
+		
+		ResultSet rs=stmt.executeQuery(sql);
+		rs.next();
+		String thid = rs.getString(1);
+		
+		sql = "INSERT INTO thread VALUES("+thid+",'"+title+"', default, default, '"+username+"')";
+		
+		stmt.executeUpdate(sql);
+		
+		sql = "CREATE SEQUENCE content_seq"+thid;
 		
 		stmt.executeUpdate(sql);
 	

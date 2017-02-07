@@ -17,10 +17,15 @@ class writeContent extends Executer {
 		if(username == null){
 			username = req.getRemoteAddr();
 		}
+		//‰üsˆ—
 		String content = req.getParameter("content").replaceAll("\n","<br>");
-		String sql = "INSERT INTO content VALUES('"+thid+"', content_seq.nextval,'"+username+"', '"+content+"', default,'')";
 		
-		stmt.executeUpdate(sql);
-	
+		String sql = "INSERT INTO content VALUES('"+thid+"', content_seq"+thid+".nextval,'"+username+"', '"+content+"', default,'')";
+		
+		int rs = stmt.executeUpdate(sql);
+		if(rs>0){
+			sql = "update thread set th_ldate=sysdate where th_id="+thid;
+			stmt.executeUpdate(sql);
+		}
 	}
 }

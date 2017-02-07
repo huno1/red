@@ -14,14 +14,10 @@
 
 <% List<Topic> tlist=(List<Topic>)request.getAttribute("threadlist");
 	try{
-		for(Topic t:tlist){
-			String count = t.getCount();
-			if(count==null){
-				count="0";
-			} %>
+		for(Topic t:tlist){ %>
 			<a href="main?topic=<%=t.getId() %>" class="topic">
 				<div class="tlist" id="t<%=t.getId() %>">
-					<h2><%=t.getTitle() +"("+count+")" %></h2>
+					<h2><%=t.getTitle() +"("+t.getCount()+")" %></h2>
 	    			<div class="detail">
 		    			<%=t.getId() +" / "+ t.getMaker() +" / "+ t.getFdate() +" / "+ t.getLdate() %>
 						<% if( session.getAttribute("s_id")!=null && session.getAttribute("s_id").equals(t.getMaker()) ){ %>

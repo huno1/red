@@ -19,6 +19,7 @@ class Executer {
 		}
 	}
 	
+	//オーバーライド専用
 	public void execute(HttpServletRequest req) throws Exception{}
 	
 }

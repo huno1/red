@@ -10,6 +10,8 @@ import java.io.IOException;
 
 public class MainServlet extends HttpServlet{
 	
+	//Commander=Executer‚Éw¦‚ğo‚·‚à‚Ì
+	//Executer=ó‚¯‚½w¦’Ê‚è‚Ìì‹Æ‚ğ‚·‚é‚à‚Ì
 	Commander commander = new Commander();
 	Executer executer = null;
 	

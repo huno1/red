@@ -13,7 +13,15 @@ class deleteTopic extends Executer {
 		String id = req.getParameter("id");
 		
 		String sql = "DELETE FROM thread WHERE th_id="+id;
-		System.out.println(sql);
+		
+		stmt.executeUpdate(sql);
+		
+		sql = "DELETE FROM content WHERE th_id="+id;
+		
+		stmt.executeUpdate(sql);
+		
+		sql = "DROP SEQUENCE content_seq"+id;
+		
 		stmt.executeUpdate(sql);
 		
 		req.setAttribute("message",id+" çÌèúÇ≥ÇÍÇ‹ÇµÇΩÅB");

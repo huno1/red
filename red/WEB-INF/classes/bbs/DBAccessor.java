@@ -19,6 +19,7 @@ class DBAccessor{
 		}
 	}
 	
+	//Executer‚ªƒQƒbƒg‚µ‚ÄŽg‚¦‚é‚æ‚¤‚É‚·‚é
 	public Statement getStmt(){
 		return stmt;
 	}
