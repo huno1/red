@@ -33,5 +33,6 @@ class writeTopic extends Executer {
 		
 		stmt.executeUpdate(sql);
 	
+		con.commit();
 	}
 }

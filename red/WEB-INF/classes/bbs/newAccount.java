@@ -24,5 +24,6 @@ class newAccount extends Executer {
 			stmt.executeUpdate(sql);
 			session.setAttribute("s_id",userid);
 		}
+		con.commit();
 	}
 }

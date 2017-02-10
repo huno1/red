@@ -16,7 +16,7 @@ class deleteTopic extends Executer {
 		
 		stmt.executeUpdate(sql);
 		
-		sql = "DELETE FROM content WHERE th_id="+id;
+		sql = "DELETE FROM content WHERE con_th_id="+id;
 		
 		stmt.executeUpdate(sql);
 		
@@ -25,6 +25,7 @@ class deleteTopic extends Executer {
 		stmt.executeUpdate(sql);
 		
 		req.setAttribute("message",id+" çÌèúÇ≥ÇÍÇ‹ÇµÇΩÅB");
-	
+		
+		con.commit();
 	}
 }

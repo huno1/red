@@ -7,14 +7,18 @@ public class Content{
 	private String content;
 	private String date;
 	private String parent;
+	private String deleted;
+	private String file;
 	
-	public Content(String thid, String id, String username, String content, String date, String parent){
+	public Content(String thid, String id, String username, String content, String date, String parent, String deleted, String file){
 		this.thid=thid;
 		this.id=id;
 		this.username=username;
 		this.content=content;
 		this.date=date;
 		this.parent=parent;
+		this.deleted=deleted;
+		this.file=file;
 	}
 	
 	public String getThid(){
@@ -34,5 +38,11 @@ public class Content{
 	}
 	public String getParent(){
 		return parent;
+	}
+	public String getDeleted(){
+		return deleted;
+	}
+	public String getFile(){
+		return file;
 	}
 }

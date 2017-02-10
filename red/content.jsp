@@ -3,12 +3,24 @@
 	import="java.util.List,bean.*" %>
 	
 <div class="wrapper">
-<% try{
+<% 
+	String servlet = "main";
+	if(request.getQueryString()!=null){
+		servlet += "?"+request.getQueryString();
+	}
+	try{
 	Topic t=(Topic)request.getAttribute("topic"); %>
-	<div><%=t.getId() +" / "+ t.getTitle() +" / "+ t.getMaker() +" / "+ t.getFdate() +" / "+ t.getLdate() +" / "+ t.getCount() %></div>
-    <form name="writeContent" class="write" method="POST" action="main?<%=request.getQueryString() %>" onsubmit="checkcontent();return false">
+	<a href="<%=servlet %>" class="topic">
+		<div class="tlist" id="t<%=t.getId() %>">
+			<h2><%=t.getTitle() +"("+t.getCount()+")" %></h2>
+			<div class="detail">
+    			<%=t.getId() +" / "+ t.getMaker() +" / "+ t.getFdate() +" / "+ t.getLdate() %>
+    		</div>
+		</div>
+	</a>
+    <form name="writeContent" class="write" method="POST" action="<%=servlet %>" onsubmit="checkcontent();return false" enctype="multipart/form-data">
         <textarea rows="4" cols="50" name="content" placeholder="please enter..."></textarea>
-        <div class="right"><input type="submit" value="“Še" /></div>
+        <div class="right"><input type="file" name="fileupload" /><input type="submit" value="“Še" /></div>
         <input type="hidden" name="action" value="writeContent" >
         <input type="hidden" name="thid" value="<%=t.getId() %>" >
     </form>
@@ -16,11 +28,15 @@
        for(Content c:clist){ %>
 		<div class="clist">
     		 <%=c.getId() +" / "+ c.getUsername() +" / "+ c.getDate() %>
-    		 <div class="cont"><%=c.getContent() %></div>
+    		 <div class="cont"><%=c.getContent() %>
+    		 	<% if(c.getFile()!=null && !c.getFile().equals("null")){ %>
+    		 		<div><img src="<%=c.getFile() %>"></div>
+    		 	<% } %></div>
 		     <% if(session.getAttribute("s_id")!=null && session.getAttribute("s_id").equals(c.getUsername())){ %>
-	    		 <form class="deletecontent" name="deletecontent" method="POST" action="main?<%=request.getQueryString() %>" onsubmit="checkdeletecontent();return false">
+	    		 <form class="deletecontent" name="deletecontent" method="POST" action="<%=servlet %>" onsubmit="checkdeletecontent();return false">
 					 <input type="submit" value="íœ" >
 		    		 <input type="hidden" name="cid" value="<%=c.getId() %>" >
+		    		 <input type="hidden" name="thid" value="<%=t.getId() %>" >
 		    		 <input type="hidden" name="action" value="deleteContent" >
 	    		 </form>
     		 <% } %>

@@ -48,7 +48,3 @@ function checkdeletecontent(){
 		return true;
 	}
 }
-window.onload = function(){
-	var thid = window.location.href.split("#t");
-	opentopic(thid[1]);
-}

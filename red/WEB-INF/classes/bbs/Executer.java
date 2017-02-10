@@ -5,15 +5,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 
 import java.sql.Statement;
+import java.sql.Connection;
 
 class Executer {
 	
-	Statement stmt = null;
+	Connection con;
+	Statement stmt;
 	
 	public Executer(){
 		try{
 			DBAccessor dba = new DBAccessor();
-			stmt = dba.getStmt();
+			con = dba.getConnection();
+			stmt = con.createStatement();
 		}catch(Exception e){
 			e.printStackTrace();
 		}

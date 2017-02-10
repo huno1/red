@@ -11,12 +11,14 @@ class deleteContent extends Executer {
 	public void execute(HttpServletRequest req) throws Exception{
 		
 		String cid = req.getParameter("cid");
+		String thid = req.getParameter("thid");
 		
-		String sql = "DELETE FROM content WHERE con_id="+cid;
-		System.out.println(sql);
+		String sql = "DELETE FROM content WHERE con_th_id="+thid+" and con_id="+cid;
+		
 		stmt.executeUpdate(sql);
 		
 		req.setAttribute("message",cid+" çÌèúÇ≥ÇÍÇ‹ÇµÇΩÅB");
 	
+		con.commit();
 	}
 }

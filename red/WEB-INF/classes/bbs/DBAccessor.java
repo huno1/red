@@ -6,13 +6,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 class DBAccessor{
-	private Statement stmt;
+	private Connection con;
 	
 	public DBAccessor() throws Exception {
 		try{
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "info", "pro");
-			stmt = con.createStatement();
+			con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "info", "pro");
+			con.setAutoCommit(false);
 		}catch(Exception e){
 			e.printStackTrace();
 			System.out.println("DBAccessor Exception");
@@ -20,8 +20,8 @@ class DBAccessor{
 	}
 	
 	//Executer‚ªƒQƒbƒg‚µ‚ÄŽg‚¦‚é‚æ‚¤‚É‚·‚é
-	public Statement getStmt(){
-		return stmt;
+	public Connection getConnection(){
+		return con;
 	}
 	
 }

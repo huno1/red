@@ -7,6 +7,9 @@ import javax.servlet.ServletException;
 import javax.servlet.RequestDispatcher;
 
 import java.io.IOException;
+import java.io.File;
+
+import com.oreilly.servlet.MultipartRequest;
 
 public class MainServlet extends HttpServlet{
 	
@@ -35,6 +38,22 @@ public class MainServlet extends HttpServlet{
 		
 		req.setCharacterEncoding("Windows-31J");
 		
+	/*	ファイルアップロードするやつ。(臨時)
+		1番目のtryは問題ないが、
+		2番目のtryでformのenctypeが問題になるので調整必要 */
+		
+		MultipartRequest multi = null;
+		try{
+			multi = new MultipartRequest(req, "c:\\webapps\\red", 1024*1024*20, "Windows-31J");
+			
+			FileUpload upload = new FileUpload();
+			upload.uploadfile(multi, req);
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+
+		
 		try{
 			executer = commander.getCommand(req);
 			executer.execute(req);
@@ -42,6 +61,11 @@ public class MainServlet extends HttpServlet{
 			e.printStackTrace();
 		}
 		
-		doGet(req, res);
+		String url = "main";
+		if(req.getQueryString()!=null){
+			url += "?"+req.getQueryString();
+		}
+		
+		res.sendRedirect(url);
 	}
 }
