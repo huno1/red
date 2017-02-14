@@ -13,7 +13,7 @@ class deleteContent extends Executer {
 		String cid = req.getParameter("cid");
 		String thid = req.getParameter("thid");
 		
-		String sql = "DELETE FROM content WHERE con_th_id="+thid+" and con_id="+cid;
+		String sql = "UPDATE content SET con_state=0 WHERE con_th_id="+thid+" AND con_id="+cid;
 		
 		stmt.executeUpdate(sql);
 		

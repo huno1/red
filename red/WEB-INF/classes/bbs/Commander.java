@@ -6,7 +6,7 @@ class Commander{
 	
 	public Executer getCommand(HttpServletRequest req) throws Exception{
 		
-		String action = req.getParameter("action");
+		String action = req.getParameter("do");
 		
 		if(action.equals("writeContent")){
 			return new writeContent();

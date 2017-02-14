@@ -2,13 +2,11 @@
     contentType="text/html;charset=Windows-31J"
 	import="java.util.List,bean.*" %>
 	
-<div class="wrapper">
-
 <% if(session.getAttribute("s_id")!=null){ %>
 <form class="newtopic" name="newtopic" method="POST" action="main" onsubmit="checktopic();return false">
     <input type="text" id="nTOPIC" name="title" placeholder="Make a new topic">
     <input type="submit" value="作成" />
-    <input type="hidden" name="action" value="writeTopic" >
+    <input type="hidden" name="do" value="writeTopic" >
 </form>
 <% } %>
 
@@ -24,7 +22,7 @@
 						<form class="deletetopic" name="deletetopic" method="POST" action="main" onsubmit="checkdeletetopic();return false">
 						    <input type="submit" value="×" >
 				    		<input type="hidden" name="id" value="<%=t.getId() %>" >
-						    <input type="hidden" name="action" value="deleteTopic" >
+						    <input type="hidden" name="do" value="deleteTopic" >
 						</form>
 						<% } %>
 					</div>
@@ -37,4 +35,3 @@
 		out.println("データベースにアクセスできません。");
 	}
 %>
-</div>

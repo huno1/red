@@ -20,7 +20,7 @@ class readTopicList extends Executer {
 		String thid = req.getParameter("topic");
 		
 		List<Topic> tlist = new ArrayList<Topic>();
-		String sql = "SELECT th_id, th_title, th_fdate, th_ldate, count, th_maker FROM thread LEFT JOIN (select con_th_id, count(*) count from content group by con_th_id) ON (th_id=con_th_id) ORDER BY th_ldate DESC";
+		String sql = "SELECT th_id, th_title, th_fdate, th_ldate, count, th_maker FROM thread LEFT JOIN (select con_th_id, count(*) count from content where con_state=1 group by con_th_id) ON (th_id=con_th_id) ORDER BY th_ldate DESC";
 		
 		ResultSet rs = stmt.executeQuery(sql);
 		while (rs.next()) {

@@ -26,6 +26,8 @@ public class MainServlet extends HttpServlet{
 		try{
 			executer = commander.getQuery(req);
 			executer.execute(req);
+			executer = new readRecent();
+			executer.execute(req);
 		}catch(Exception e){
 			e.printStackTrace();
 		}
@@ -38,22 +40,6 @@ public class MainServlet extends HttpServlet{
 		
 		req.setCharacterEncoding("Windows-31J");
 		
-	/*	ファイルアップロードするやつ。(臨時)
-		1番目のtryは問題ないが、
-		2番目のtryでformのenctypeが問題になるので調整必要 */
-		
-		MultipartRequest multi = null;
-		try{
-			multi = new MultipartRequest(req, "c:\\webapps\\red", 1024*1024*20, "Windows-31J");
-			
-			FileUpload upload = new FileUpload();
-			upload.uploadfile(multi, req);
-			
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-
-		
 		try{
 			executer = commander.getCommand(req);
 			executer.execute(req);
@@ -62,8 +48,8 @@ public class MainServlet extends HttpServlet{
 		}
 		
 		String url = "main";
-		if(req.getQueryString()!=null){
-			url += "?"+req.getQueryString();
+		if(req.getParameter("topic")!=null){
+			url += "?topic="+req.getParameter("topic");
 		}
 		
 		res.sendRedirect(url);

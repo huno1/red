@@ -21,7 +21,7 @@ class readContentList extends Executer {
 		
 		//レスの収取
 		List<Content> clist = new ArrayList<Content>();
-		String sql = "SELECT con_th_id, con_id, con_user_name, con_content, con_date, con_parent_id, con_deleted, con_file FROM content WHERE con_th_id = '"+thid+"' ORDER BY con_date DESC";
+		String sql = "SELECT con_th_id, con_id, con_user_name, con_content, con_date, con_parent_id, con_deleted, con_file FROM content WHERE con_th_id = '"+thid+"' AND con_state=1 ORDER BY con_date DESC";
 		
 		ResultSet rs = stmt.executeQuery(sql);
 		while (rs.next()) {
@@ -31,7 +31,7 @@ class readContentList extends Executer {
 		req.setAttribute("contentlist",clist);
 		
 		//スレの見出し用
-		sql = "SELECT th_id, th_title, th_fdate, th_ldate, count, th_maker FROM thread LEFT JOIN (select con_th_id, count(*) count from content group by con_th_id) ON (th_id=con_th_id) WHERE th_id = '"+thid+"'";
+		sql = "SELECT th_id, th_title, th_fdate, th_ldate, count, th_maker FROM thread LEFT JOIN (select con_th_id, count(*) count from content where con_state=1 group by con_th_id) ON (th_id=con_th_id) WHERE th_id = '"+thid+"'";
 		
 		rs = stmt.executeQuery(sql);
 		rs.next();

@@ -9,27 +9,31 @@ img{
 	max-width: 100%;
 }
 .wrapper{
-	width: calc(100% - 10px);
-	max-width: 700px;
+	width: 1000px;
 	position: relative;
 	margin:0 auto;
-	overflow:hidden;
 	padding: 15px 0;
 }
+.main{
+	padding-left: 290px;
+}
 #top{
-	width: calc(100% - 10px);
-	max-width: 700px;
-	padding: 40px 15px;
+	width: 1000px;
+	padding: 15px;
 	margin: 0 auto;
-	width: 100%;
-	text-align: center;
+	height: 110px;
 	background: #99f;
+	display: table;
 }
 #top a{
 	color: white;
 	font-size: 40px;
+	font-style: italic;
 	text-decoration: none;
 	font-weight: bold;
+	margin-top: 50px;
+	display: table-cell;
+	vertical-align: bottom;
 }
 #totop{
 	position:fixed;
@@ -53,8 +57,14 @@ img{
 #totop .btn:hover{
 	opacity: 0.5;
 }
+form.newtopic{
+	padding-top: 10px;
+}
 .newtopic input[type="text"]{
-	width: calc(100% - 43px);
+	width: calc(100% - 51px);
+}
+.newtopic input[type="submit"]{
+	width: 43px;
 }
 input[type="submit"]{
 	background: white;
@@ -73,8 +83,8 @@ a.topic .detail{
 	border-bottom: 1px solid #eee;
 	height: 19px;
 }
-.login input[type="text"]{
-	width:100px;
+.loginwrap input[type="text"]{
+	width:130px;
 }
 input[type="password"]{
 	width:60px;
@@ -110,9 +120,10 @@ form.deletecontent{
 	margin: 0;
 }
 .loginwrap{
-	position:fixed;
-	right:2px;
-	top:0;
+	position: absolute;
+	width: 260px;
+	left: 0;
+	top: 24px;
 	text-align: right;
 	z-index: 9;
 }
@@ -136,4 +147,30 @@ form[name="newaccount"] input{
 }
 .message{
 	padding: 1em 0;
+}
+.recent{
+	position: absolute;
+	width: 260px;
+	height: 500px;
+	left: 0;
+	top: 79px;
+}
+.rlist{
+	border-bottom: 1px solid #eef;
+	position: relative;
+	margin: 10px 0;
+}
+.rlist img{
+	height: 20px;
+}
+.rcont{
+	overflow: hidden;
+	width: 200px;
+}
+.rdate{
+	text-decoration: none;
+	font-size: 9px;
+	position: absolute;
+	right: 0;
+	bottom: 0;
 }

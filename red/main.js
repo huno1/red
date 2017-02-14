@@ -29,8 +29,6 @@ function checktopic(){
 function checkcontent(){
 	if(document.writeContent.content.value.length < 1){
 		return false;
-	}else if(document.getElementById("nTOPIC").value.length > 2000){
-		alert("2000•¶š‚Ü‚Å“ü—Í‰Â”\‚Å‚·B");
 	}else{
 		document.writeContent.submit();
 		return true;
