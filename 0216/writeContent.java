@@ -14,13 +14,13 @@ import com.oreilly.servlet.MultipartRequest;
 
 class writeContent extends Executer {
 	
-	public void execute(HttpServletRequest req) throws Exception{
-		
-		MultipartRequest multi = new MultipartRequest(req, "c:\\webapps\\red\\upload", 1024*1024*20, "Windows-31J");
+	public void execute(ServletRequest req) throws Exception{
+		HttpServletRequest servletReq = req.getRequest();
+		MultipartRequest multi = new MultipartRequest(servletReq, "c:\\webapps\\red\\upload", 1024*1024*20, "Windows-31J");
 			
 		String filename = multi.getFilesystemName("fileupload");
 		
-		HttpSession session = req.getSession();
+		HttpSession session = servletReq.getSession();
 		
 		String thid = multi.getParameter("thid");
 		String username = (String)session.getAttribute("s_id");
@@ -31,7 +31,7 @@ class writeContent extends Executer {
 		String conid = rs.getString(1);
 		
 		if(username == null){
-			username = req.getRemoteAddr();
+			username = servletReq.getRemoteAddr();
 		}
 		//â¸çsèàóù
 		String content = multi.getParameter("content").replaceAll("\n","<br>");

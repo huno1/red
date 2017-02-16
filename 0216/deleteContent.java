@@ -1,23 +1,19 @@
 package bbs;
 
-import javax.servlet.http.HttpSession;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-
 import java.sql.Statement;
 
 class deleteContent extends Executer {
 	
-	public void execute(HttpServletRequest req) throws Exception{
+	public void execute(ServletRequest req) throws Exception{
 		
-		String cid = req.getParameter("cid");
-		String thid = req.getParameter("thid");
+		String conid = req.getConid();
+		String thid = req.getThid();
 		
-		String sql = "UPDATE content SET con_state=0 WHERE con_th_id="+thid+" AND con_id="+cid;
+		String sql = "UPDATE content SET con_state=0 WHERE con_th_id="+thid+" AND con_id="+conid;
 		
 		stmt.executeUpdate(sql);
 		
-		req.setAttribute("message",cid+" çÌèúÇ≥ÇÍÇ‹ÇµÇΩÅB");
+		req.setAttribute("message",conid+" çÌèúÇ≥ÇÍÇ‹ÇµÇΩÅB");
 	
 		con.commit();
 	}
