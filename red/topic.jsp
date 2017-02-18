@@ -21,7 +21,7 @@
 						<% if( session.getAttribute("s_id")!=null && session.getAttribute("s_id").equals(t.getMaker()) ){ %>
 						<form class="deletetopic" name="deletetopic" method="POST" action="main" onsubmit="checkdeletetopic();return false">
 						    <input type="submit" value="×" >
-				    		<input type="hidden" name="id" value="<%=t.getId() %>" >
+				    		<input type="hidden" name="thid" value="<%=t.getId() %>" >
 						    <input type="hidden" name="do" value="deleteTopic" >
 						</form>
 						<% } %>
@@ -30,7 +30,7 @@
     		</a>
 		<% } 
 	}catch(NullPointerException e){
-		response.sendRedirect("main");
+		response.sendRedirect("main?page=1");
 	}catch(Exception e){
 		out.println("データベースにアクセスできません。");
 	}

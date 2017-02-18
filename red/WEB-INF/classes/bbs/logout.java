@@ -8,9 +8,9 @@ import java.sql.Statement;
 
 class logout extends Executer {
 	
-	public void execute(HttpServletRequest req) throws Exception{
+	public void execute(ServletRequest req) throws Exception{
 		
-		HttpSession session = req.getSession();
+		HttpSession session = req.getRequest().getSession();
 		
 		session.removeAttribute("s_id"); 
 	}

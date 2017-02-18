@@ -1,6 +1,6 @@
 package bean;
 
-public class Content{
+public class Content extends Bean{
 	private String thid;
 	private String id;
 	private String username;
@@ -9,6 +9,7 @@ public class Content{
 	private String parent;
 	private String deleted;
 	private String file;
+	private Topic topic;
 	
 	public Content(String thid, String id, String username, String content, String date, String parent, String deleted, String file){
 		this.thid=thid;

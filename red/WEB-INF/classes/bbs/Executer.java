@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 import java.sql.Statement;
 import java.sql.Connection;
 
+import java.util.List;
+import bean.*;
+
 class Executer {
 	
 	Connection con;
@@ -23,6 +26,7 @@ class Executer {
 	}
 	
 	//オーバーライド専用
-	public void execute(HttpServletRequest req) throws Exception{}
+	public void execute(ServletRequest req) throws Exception{}
+	public List query(ServletRequest req) throws Exception{return null;}
 	
 }

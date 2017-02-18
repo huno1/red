@@ -29,9 +29,11 @@ img{
 	color: white;
 	font-size: 40px;
 	font-style: italic;
+	text-align: right;
 	text-decoration: none;
 	font-weight: bold;
 	margin-top: 50px;
+	padding: 0 15px;
 	display: table-cell;
 	vertical-align: bottom;
 }
@@ -84,7 +86,7 @@ a.topic .detail{
 	height: 19px;
 }
 .loginwrap input[type="text"]{
-	width:130px;
+	width:110px;
 }
 input[type="password"]{
 	width:60px;
@@ -121,11 +123,14 @@ form.deletecontent{
 }
 .loginwrap{
 	position: absolute;
-	width: 260px;
+	width: 240px;
+	height: 60px;
 	left: 0;
 	top: 24px;
 	text-align: right;
 	z-index: 9;
+	padding: 10px;
+	background: #fafaff;
 }
 .openpage{
 	padding: 2px 1.2em;
@@ -150,10 +155,12 @@ form[name="newaccount"] input{
 }
 .recent{
 	position: absolute;
-	width: 260px;
-	height: 500px;
+	width: 240px;
+	height: auto;
 	left: 0;
-	top: 79px;
+	top: 120px;
+	padding: 10px;
+	background: #fafaff;
 }
 .rlist{
 	border-bottom: 1px solid #eef;
@@ -165,7 +172,7 @@ form[name="newaccount"] input{
 }
 .rcont{
 	overflow: hidden;
-	width: 200px;
+	width: 190px;
 }
 .rdate{
 	text-decoration: none;

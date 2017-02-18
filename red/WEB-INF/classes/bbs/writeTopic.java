@@ -9,14 +9,14 @@ import java.sql.Statement;
 
 class writeTopic extends Executer {
 	
-	public void execute(HttpServletRequest req) throws Exception{
+	public void execute(ServletRequest req) throws Exception{
+		HttpServletRequest servletReq = req.getRequest();
+		HttpSession session = servletReq.getSession();
 		
-		HttpSession session = req.getSession();
-		
-		String title = req.getParameter("title");
+		String title = req.getTitle();
 		String username = (String)session.getAttribute("s_id");
 		if(username == null){
-			username = req.getRemoteAddr();
+			username = servletReq.getRemoteAddr();
 		}
 		
 		String sql = "SELECT thread_seq.nextval FROM dual";

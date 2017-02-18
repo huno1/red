@@ -1,6 +1,6 @@
 package bean;
 
-public class Topic{
+public class Topic extends Bean{
 	private String id;
 	private String title;
 	private String fdate;

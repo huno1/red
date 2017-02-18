@@ -1,23 +1,19 @@
 package bbs;
 
-import javax.servlet.http.HttpSession;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-
 import java.util.List;
 import java.util.ArrayList;
 
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-import bean.Topic;
+import bean.*;
 
 class readTopicList extends Executer {
 	
-	public void execute(HttpServletRequest req) throws Exception{
+	public List getTopicList(ServletRequest req) throws Exception{
 		
 		//topic=form‚©‚çŽæ‚Á‚½ƒXƒŒID
-		String thid = req.getParameter("topic");
+		String thid = req.getThid();
 		
 		List<Topic> tlist = new ArrayList<Topic>();
 		String sql = "SELECT th_id, th_title, th_fdate, th_ldate, count, th_maker FROM thread LEFT JOIN (select con_th_id, count(*) count from content where con_state=1 group by con_th_id) ON (th_id=con_th_id) ORDER BY th_ldate DESC";
@@ -29,7 +25,7 @@ class readTopicList extends Executer {
 		}
 		rs.close();
 		
-		req.setAttribute("threadlist",tlist);
+		return tlist;
 		
 	}
 }

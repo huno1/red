@@ -14,7 +14,7 @@ import bean.Content;
 
 class readRecent extends Executer {
 	
-	public void execute(HttpServletRequest req) throws Exception{
+	public List query(ServletRequest req) throws Exception{
 		
 		List<Content> recent = new ArrayList<Content>();
 		String sql = "SELECT con_th_id, con_id, con_user_name, con_content, con_date, con_parent_id, con_deleted, con_file FROM content WHERE con_state=1 ORDER BY con_date DESC";
@@ -27,8 +27,6 @@ class readRecent extends Executer {
 			i++;
 			if(i>20) break;
 		}
-		req.setAttribute("recent",recent);
-		
-		rs.close();
+		return recent;
 	}
 }

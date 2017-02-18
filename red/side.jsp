@@ -22,8 +22,8 @@
 <div class="loginwrap">
     <% if(session.getAttribute("s_id")==null){%>
    	<form name="login" method="POST" action="main?<%=request.getQueryString() %>">
-        <input type="text" name="loginID" placeholder="ここでログイン">
-        <input type="password" name="loginPW" placeholder="password">
+        <input type="text" name="username" placeholder="ここでログイン">
+        <input type="password" name="userpass" placeholder="password">
         <input type="submit" value="ログイン" />
         <input type="hidden" name="do" value="login" />
     </form>
@@ -32,9 +32,9 @@
         </a>
         <div id="newaccountwrap">
 		   	<form name="newaccount" method="POST" action="main" onsubmit="check();return false">
-		        <input type="text" id="nID" name="newID" placeholder="なまえ">
-		        <input type="password" id="nPW" name="newPW" placeholder="パスワード">
-		        <input type="password" id="nPWPW" name="newPWPW" placeholder="もう一回">
+		        <input type="text" id="nID" name="username" placeholder="なまえ">
+		        <input type="password" id="nPW" name="userpass" placeholder="パスワード">
+		        <input type="password" id="nPWPW" name="userpasspass" placeholder="もう一回">
 		        <input type="submit" value="確認" />
 		        <input type="hidden" name="do" value="newAccount" />
 		    </form>

@@ -4,9 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 class Commander{
 	
-	public Executer getCommand(HttpServletRequest req) throws Exception{
-		
-		String action = req.getParameter("do");
+	public Executer getCommand(String action) throws Exception{
 		
 		if(action.equals("writeContent")){
 			return new writeContent();
@@ -31,18 +29,6 @@ class Commander{
 			
 		}else{
 			return null;
-		}
-		
-	}
-	
-	public Executer getQuery(HttpServletRequest req) throws Exception{
-		
-		if(req.getParameter("topic")!=null){
-			return new readContentList();
-			
-		}else{
-			return new readTopicList();
-			
 		}
 		
 	}
