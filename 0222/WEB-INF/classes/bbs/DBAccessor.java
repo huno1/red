@@ -20,7 +20,6 @@ class DBAccessor{
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "info", "pro");
 			con.setAutoCommit(false);
-			stmt = con.createStatement();
 		}catch(Exception e){
 			e.printStackTrace();
 			System.out.println("DBAccessor Exception");
@@ -28,6 +27,7 @@ class DBAccessor{
 	}
 	
 	public List<Bean> getTopicList(String sql) throws Exception{
+		stmt = con.createStatement();
 		List<Bean> tlist = new ArrayList<Bean>();
 		ResultSet rs = stmt.executeQuery(sql);
 		while (rs.next()) {
@@ -38,6 +38,7 @@ class DBAccessor{
 	}
 	
 	public List<Bean> getContentList(String sql) throws Exception{
+		stmt = con.createStatement();
 		List<Bean> clist = new ArrayList<Bean>();
 		ResultSet rs = stmt.executeQuery(sql);
 		while (rs.next()) {
@@ -50,6 +51,7 @@ class DBAccessor{
 	
 	
 	public String getString(String sql) throws Exception{
+		stmt = con.createStatement();
 		ResultSet rs = stmt.executeQuery(sql);
 		if(rs.next()){
 			return rs.getString(1);
@@ -59,7 +61,7 @@ class DBAccessor{
 	}
 	
 	public int executeUpdate(String sql) throws Exception{
-		
+		stmt = con.createStatement();
 		return stmt.executeUpdate(sql);
 	}
 	

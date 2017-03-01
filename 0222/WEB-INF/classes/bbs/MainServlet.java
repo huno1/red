@@ -67,6 +67,7 @@ public class MainServlet extends HttpServlet{
 			req.setAttribute("recent",recent);
 		}catch(Exception e){
 			e.printStackTrace();
+			res.sendRedirect("main?page=1");
 		}
 		
 		req.getRequestDispatcher("/index.jsp").include(req, res);

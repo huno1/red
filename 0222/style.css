@@ -1,9 +1,11 @@
 body{
 	margin: 0;
 	padding: 0;
+	font-family: monospace;
 }
 a{
 	color: initial;
+	text-decoration: none;
 }
 img{
 	max-width: 100%;
@@ -85,6 +87,10 @@ a.topic .detail{
 	border-bottom: 1px solid #eee;
 	height: 19px;
 }
+.loginwrap form[name="login"]{
+    display: flex;
+    justify-content: space-between;
+}
 .loginwrap input[name="username"]{
 	width:110px;
 }
@@ -133,7 +139,10 @@ form.deletecontent{
 	background: #fafaff;
 }
 .openpage{
-	padding: 2px 1.2em;
+	padding: 2px 0;
+	width: 100px;
+	display: inline-block;
+	text-align: center;
 	border: 1px solid #ccc;
 	background: #eee;
 	color: black;
@@ -192,7 +201,8 @@ form.deletecontent{
 }
 .rcont{
 	overflow: hidden;
-	width: 190px;
+	width: 179px;
+	max-height:2em;
 }
 .rdate{
 	text-decoration: none;
