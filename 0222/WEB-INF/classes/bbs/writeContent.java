@@ -10,7 +10,7 @@ class writeContent extends Executer {
 	
 	public void execute(ServletRequest req) throws Exception{
 		HttpServletRequest servletReq = req.getRequest();
-		MultipartRequest multi = new MultipartRequest(servletReq, "c:\\webapps\\red\\upload", 1024*1024*20, "Windows-31J");
+		MultipartRequest multi = new MultipartRequest(servletReq, "c:\\webapps\\red\\upload", 1024*1024*200, "Windows-31J");
 			
 		String filename = multi.getFilesystemName("fileupload");
 		

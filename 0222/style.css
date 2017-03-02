@@ -7,8 +7,13 @@ a{
 	color: initial;
 	text-decoration: none;
 }
-img{
+img, video{
 	max-width: 100%;
+}
+span.video{
+	color: #aaa;
+	display: inline;
+	font-size: 0.9em;
 }
 .wrapper{
 	width: 1000px;
@@ -203,6 +208,9 @@ form.deletecontent{
 	overflow: hidden;
 	width: 179px;
 	max-height:2em;
+}
+.rcont div{
+	display: inline-block;
 }
 .rdate{
 	text-decoration: none;

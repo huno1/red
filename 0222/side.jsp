@@ -17,8 +17,13 @@
 		<div class="rlist">
     		 	<a href="main?topic=<%=r.getThid() %>#<%=r.getId() %>">
     		 	<div class="rcont">
-    		 	<% if(r.getFile()!=null && !r.getFile().equals("null")){ %>
-    		 		<img src="upload/<%=r.getFile() %>">
+    		 	<% if(r.getFile()!=null && !r.getFile().equals("null")){
+    		 		if(r.getFile().indexOf(".jpg")>0 || r.getFile().indexOf(".jpeg")>0 || r.getFile().indexOf(".png")>0 || r.getFile().indexOf(".bmp")>0 || r.getFile().indexOf(".gif")>0 ){ %>
+    		 			<div><img src="upload/<%=r.getFile() %>"></div>
+    		 		<% }else if(r.getFile().indexOf(".webm")>0 || r.getFile().indexOf(".avi")>0 || r.getFile().indexOf(".mp4")>0 || r.getFile().indexOf(".wmv")>0){ %>
+    		 			<span class="video">[動画]</span>
+    		 		<% }else{
+    		 		} %>
     		 	<% } %><%=r.getContent() %></div>
     		 	<div class="rdate"><%=r.getDate().substring(5,16) %></div>
     		 	</a>
@@ -34,11 +39,11 @@
    	<form name="login" method="POST" action="main?<%=request.getQueryString() %>">
         <input type="text" name="username" placeholder="ここでログイン">
         <input type="password" name="userpass" placeholder="password">
-        <input type="submit" value="ログイン" />
+        <input type="submit" value="Login" />
         <input type="hidden" name="do" value="login" />
     </form>
         <a class="openpage" href="javascript:openaccount()">
-        契約する
+        New Account
         </a>
         <div id="newaccountwrap">
 		   	<form name="newaccount" method="POST" action="main" onsubmit="check();return false">
@@ -52,7 +57,7 @@
     <% }else{ %>
    	<form name="logout" method="POST" action="main?<%=request.getQueryString() %>">
     	こんにちは、<%=session.getAttribute("s_id") %> さん
-        <input type="submit" value="ログアウト" />
+        <input type="submit" value="Logout" />
         <input type="hidden" name="do" value="logout" />
     </form>
     <% }
